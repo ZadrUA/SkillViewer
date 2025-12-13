@@ -11,25 +11,25 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2  # Клонируем репозиторий
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v2  # Устанавливаем Python
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Устанавливаем версию Python
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller  # Устанавливаем pyinstaller для сборки .exe
+          pip install -r requirements.txt  # Устанавливаем зависимости из requirements.txt
 
       - name: Build .exe using PyInstaller
         run: |
-          pyinstaller --onefile --windowed --icon=icon.ico SkillViewer.py  # Сборка .exe
+          pyinstaller --onefile --windowed --icon=icon.ico SkillViewer.py
 
       - name: Upload .exe to GitHub Release
-        uses: softprops/action-gh-release@v1  # Загружаем собранный .exe в GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          files: dist/SkillViewer.exe  # Указываем путь к собранному .exe
+          files: dist/SkillViewer.exe
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Токен для авторизации
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
