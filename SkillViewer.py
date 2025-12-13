@@ -131,7 +131,7 @@ class SkillViewerApp(tk.Tk):
         )
         self.cb_always_on_top.pack(side=tk.LEFT)
 
-        author_label = tk.Label(bottom_frame, text="By Vamashi v1.0", anchor="e")
+        author_label = tk.Label(bottom_frame, text="By Vamashi v1.1", anchor="e")
         author_label.pack(side=tk.RIGHT)
 
     def open_file(self):
