@@ -291,7 +291,7 @@ class SkillViewerApp(tk.Tk):
             self.sessions_combo['values'] = []
             return
         sessions = self.get_sessions_for_date(date)
-        session_labels = [f"{s[0].strftime('%H:%M')} - {s[1].strftime('%H:%M')}" for s in reversed(sessions)]
+        session_labels = [f"{s[0].strftime('%H:%M')} - {s[1].strftime('%H:%M')}" for s in (sessions)]
         self.sessions_combo['values'] = session_labels
         if session_labels:
             self.sessions_combo.current(0)
