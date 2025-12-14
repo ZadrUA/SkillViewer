@@ -26,7 +26,7 @@ jobs:
 
       - name: Build .exe using PyInstaller
         run: |
-          pyinstaller SkillViewer.spec
+          pyinstaller SkillViewer/SkillViewer.spec
 
       - name: Upload .exe to GitHub Release
         uses: softprops/action-gh-release@v1
