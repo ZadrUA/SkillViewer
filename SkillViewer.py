@@ -235,8 +235,8 @@ class SkillViewerApp(tk.Tk):
         for skill, vals in sorted_items:
             self.tree.insert("", "end", values=(
                 skill,
-                f"{vals['increase']:.4f}".replace('.', ','),
-                f"{vals['new_value']:.4f}".replace('.', ',')
+                f"{vals['increase']:.6f}".replace('.', ','),
+                f"{vals['new_value']:.6f}".replace('.', ',')
             ))
         self.autosize_columns()
         # Автоматически менять высоту таблицы (от 10 до 30 строк)
