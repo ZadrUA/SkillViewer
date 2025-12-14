@@ -10,8 +10,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Debug folder structure
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "--- Files in root:"
+          dir
+          echo "--- Files inside SkillViewer:"
+          dir SkillViewer
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,9 +34,8 @@ jobs:
           pip install pyinstaller
 
       - name: Build .exe using PyInstaller
-        working-directory: SkillViewer
         run: |
-          pyinstaller SkillViewer.spec
+          pyinstaller SkillViewer/SkillViewer.spec
 
       - name: Upload .exe to GitHub Release
         uses: softprops/action-gh-release@v1
