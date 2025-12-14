@@ -25,12 +25,13 @@ jobs:
           pip install pyinstaller
 
       - name: Build .exe using PyInstaller
+        working-directory: SkillViewer
         run: |
-          pyinstaller SkillViewer/SkillViewer.spec
+          pyinstaller SkillViewer.spec
 
       - name: Upload .exe to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/SkillViewer.exe
+          files: SkillViewer/dist/SkillViewer.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
