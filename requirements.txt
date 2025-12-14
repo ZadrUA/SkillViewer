@@ -1,5 +1,1 @@
-matplotlib
-numpy
-customtkinter
-pyinstaller
-Pillow
+matplotlib==3.8.4
